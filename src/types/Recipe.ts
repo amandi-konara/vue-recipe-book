@@ -8,4 +8,8 @@ export interface Recipe {
   prepTimeMinutes: number
   cookTimeMinutes: number
   servings: number
+  difficulty: string
+  caloriesPerServing: number
+  tags: string[]
+  rating: number
 }
