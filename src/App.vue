@@ -4,13 +4,12 @@ import HelloWorld from './components/HelloWorld.vue'
 import {ref , computed, onMounted} from 'vue'
 import RecipeCard from './components/RecipeCard.vue'
 import type{ Recipe } from './types/Recipe'
+import { fetchRecipes } from './api/recipes'
 
 const recipes = ref<Recipe[]>([])
 
 onMounted(async () => {
-  const response = await fetch('/api/recipes')
-  const data = await response.json()
-  recipes.value = await data as Recipe[]
+  recipes.value = await fetchRecipes()
 })
 
 // --- NEW: Search and Filter ---
@@ -53,8 +52,8 @@ const filteredRecipes = computed(() => {
 </script>
 
 <template>
-  <RouterView />
-  <div class="min-h-screen bg-gray-100 p-6">
+  
+  <div class="bg-gray-100 px-6 pb-0 pt-0">
 
     <!-- Page Title -->
     <h1 class="text-3xl font-bold text-center mb-6">Recipe Book</h1>
@@ -102,6 +101,7 @@ const filteredRecipes = computed(() => {
     </div>
 
   </div>
+  <RouterView />
 </template>
 
 <style scoped>

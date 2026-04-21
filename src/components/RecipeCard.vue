@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Recipe } from '../types/recipe'
+import type { Recipe } from '../types/Recipe'
 
 // defineProps tells Vue this component expects a 'recipe' object
 // The type must match your Recipe interface exactly
