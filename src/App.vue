@@ -5,6 +5,7 @@ import {ref , computed, onMounted} from 'vue'
 import RecipeCard from './components/RecipeCard.vue'
 import type{ Recipe } from './types/Recipe'
 import { fetchRecipes } from './api/recipes'
+import NavBar from './components/NavBar.vue'
 
 const recipes = ref<Recipe[]>([])
 
@@ -52,11 +53,11 @@ const filteredRecipes = computed(() => {
 </script>
 
 <template>
-  
+  <NavBar />
   <div class="bg-gray-100 px-6 pb-0 pt-0">
 
     <!-- Page Title -->
-    <h1 class="text-3xl font-bold text-center mb-6">Recipe Book</h1>
+    <!-- <h1 class="text-3xl font-bold text-center mb-6">Recipe Book</h1> -->
 
     <!-- Search and Filter Bar -->
     <div class="flex flex-col sm:flex-row gap-4 mb-8 max-w-2xl mx-auto">
