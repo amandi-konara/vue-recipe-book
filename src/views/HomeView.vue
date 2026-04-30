@@ -34,7 +34,7 @@ const filteredRecipes = computed(() => {
 </script>
 
 <template>
-  <div class="bg-gray-100 min-h-screen px-6 py-6">
+  <div class="bg-gray-100 dark:bg-gray-800 min-h-screen px-6 py-6">
 
     <!-- Search and Filter Bar -->
     <div class="flex flex-col sm:flex-row gap-4 mb-8 max-w-2xl mx-auto">
@@ -42,11 +42,11 @@ const filteredRecipes = computed(() => {
         v-model="searchQuery"
         type="text"
         placeholder="Search recipes..."
-        class="flex-1 px-4 py-2 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
+        class="flex-1 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
       />
       <select
         v-model="selectedCuisine"
-        class="px-4 py-2 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
+        class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
       >
         <option v-for="cuisine in cuisines" :key="cuisine" :value="cuisine">
           {{ cuisine }}
@@ -55,7 +55,7 @@ const filteredRecipes = computed(() => {
     </div>
 
     <!-- No results message -->
-    <p v-if="filteredRecipes.length === 0" class="text-center text-gray-500">
+    <p v-if="filteredRecipes.length === 0" class="text-center text-gray-500 dark:text-gray-400">
       No recipes found. Try a different search!
     </p>
 
