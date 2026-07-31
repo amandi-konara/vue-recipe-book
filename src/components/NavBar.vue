@@ -15,17 +15,30 @@ function handleLogout() {
 </script>
 
 <template>
-  <nav class="bg-white dark:bg-gray-900 shadow-md px-6 py-4 flex items-center justify-between">
-    
-    <div class="text-4xl font-bold text-green-600 dark:text-green-400" style="margin-left: 115px;">
-      Recipe Book
+  <nav class="bg-white dark:bg-gray-900 shadow-md px-8 py-2 grid grid-cols-3 items-center">
+
+    <div></div>
+
+    <!-- Center — Logo -->
+    <div class="flex items-center justify-center">
+      <RouterLink to="/" class="flex items-center gap-2 text-4xl font-bold text-green-600 dark:text-green-400">
+        <img src="@/assets/logo_recipebook.svg" alt="Recipe Book Logo" class="w-20 h-20" />
+        Recipe Book
+      </RouterLink>
     </div>
 
-    <div class="flex items-center gap-4">
-      <RouterLink to="/" class="text-gray-600 dark:text-gray-300 hover:text-green-600" style="padding-right: 20px;">
+    <!-- Nav links -->
+    <div class="flex items-center justify-end gap-6 pr-8">
+      <RouterLink
+        to="/"
+        class="text-sm md:text-base text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition font-medium"
+      >
         Home
       </RouterLink>
-      <RouterLink to="/bookmarks" class="text-gray-600 dark:text-gray-300 hover:text-green-600" style="margin-right: 20px;">
+      <RouterLink
+        to="/bookmarks"
+        class="text-sm md:text-base text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition font-medium"
+      >
         Bookmarks
       </RouterLink>
 
@@ -35,27 +48,26 @@ function handleLogout() {
         class="p-2 rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
       >
         <SunIcon v-if="isDark" class="w-5 h-5 text-yellow-400" />
-        <MoonIcon v-else class="w-5 h-5 text-gray-600 dark:text-gray-300" />
+        <MoonIcon v-else class="w-5 h-5 text-gray-500 dark:text-gray-300" />
       </button>
 
-      <!-- Login / Logout button -->
+      <!-- Logout button -->
       <button
         v-if="authStore.isLoggedIn"
         @click="handleLogout"
-        class="flex items-center gap-1 px-3 py-1 rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition text-sm text-gray-600 dark:text-gray-300"
-        style="margin-right: 95px;"
+        class="flex items-center gap-1 px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition text-sm text-gray-600 dark:text-gray-300 font-medium"
       >
-        <ArrowRightOnRectangleIcon class="w-5 h-5" /> <!-- logout -->
+        <ArrowRightOnRectangleIcon class="w-4 h-4" />
         Logout
       </button>
 
+      <!-- Login button -->
       <RouterLink
         v-else
         to="/login"
-        class="flex items-center gap-1 px-3 py-1 rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition text-sm text-gray-600 dark:text-gray-300"
-        style="margin-right: 95px;"
+        class="flex items-center gap-1 px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition text-sm text-gray-600 dark:text-gray-300 font-medium"
       >
-        <ArrowLeftOnRectangleIcon class="w-5 h-5" /> <!-- login -->
+        <ArrowLeftOnRectangleIcon class="w-4 h-4" />
         Login
       </RouterLink>
     </div>

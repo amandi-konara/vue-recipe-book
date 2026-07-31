@@ -13,7 +13,7 @@ const router = createRouter({
     {
       path: '/recipe/:id',
       name: 'RecipeDetail',
-      component: () => import('@/components/RecipeDetails.vue')
+      component: () => import('@/views/RecipeDetailView.vue')
     },
     {
       path: '/bookmarks',
