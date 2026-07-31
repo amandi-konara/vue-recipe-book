@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Recipe } from '../types/Recipe'
 import { useRouter } from 'vue-router'
+import { ClockIcon, FireIcon, UserGroupIcon } from '@heroicons/vue/24/outline'
 
 const router = useRouter()
 
@@ -26,12 +27,18 @@ defineProps<{
       <p class="text-sm text-gray-500 dark:text-gray-300 mb-2">🍽 {{ recipe.cuisine }}</p>
 
       <div class="flex justify-between text-sm text-gray-400 dark:text-gray-300">
-        <span>⏱ Prep: {{ recipe.prepTimeMinutes }} min</span>
-        <span>🍳 Cook: {{ recipe.cookTimeMinutes }} min</span>
+        <span class="flex items-center gap-1">
+          <ClockIcon class="w-4 h-4" /> Prep: {{ recipe.prepTimeMinutes }} min
+        </span>
+        <span class="flex items-center gap-1">
+          <FireIcon class="w-4 h-4" /> Cook: {{ recipe.cookTimeMinutes }} min
+        </span>
       </div>
 
-      <p class="text-xs text-gray-400 dark:text-gray-300 mt-1">👥 Serves: {{ recipe.servings }}</p>
+      <p class="flex items-center gap-1 text-xs text-gray-400 dark:text-gray-300 mt-1">
+        <UserGroupIcon class="w-4 h-4" /> Serves: {{ recipe.servings }}
+      </p>
     </div>
-  
+
   </router-link>
 </template>
