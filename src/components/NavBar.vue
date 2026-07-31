@@ -15,8 +15,9 @@ function handleLogout() {
 </script>
 
 <template>
-  <nav class="bg-white dark:bg-gray-900 shadow-md px-8 py-2 grid grid-cols-3 items-center">
+  <nav class="backdrop-blur-md bg-white/70 dark:bg-gray-900/70 shadow-sm px-8 py-2 grid grid-cols-3 items-center border-b border-white/40 dark:border-gray-700 sticky top-0 z-50">
 
+    <!-- Left spacer -->
     <div></div>
 
     <!-- Center — Logo -->
@@ -27,17 +28,19 @@ function handleLogout() {
       </RouterLink>
     </div>
 
-    <!-- Nav links -->
+    <!-- Right — Nav links -->
     <div class="flex items-center justify-end gap-6 pr-8">
       <RouterLink
         to="/"
-        class="text-sm md:text-base text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition font-medium"
+        class="flex items-center gap-1 px-4 py-1.5 rounded-full text-sm font-medium transition"
+        :class="$route.path === '/' ? 'bg-green-500 text-white' : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'"
       >
         Home
       </RouterLink>
       <RouterLink
         to="/bookmarks"
-        class="text-sm md:text-base text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition font-medium"
+        class="flex items-center gap-1 px-4 py-1.5 rounded-full text-sm font-medium transition"
+        :class="$route.path === '/bookmarks' ? 'bg-green-500 text-white' : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'"
       >
         Bookmarks
       </RouterLink>
@@ -45,7 +48,7 @@ function handleLogout() {
       <!-- Dark mode toggle -->
       <button
         @click="toggleTheme"
-        class="p-2 rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+        class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition"
       >
         <SunIcon v-if="isDark" class="w-5 h-5 text-yellow-400" />
         <MoonIcon v-else class="w-5 h-5 text-gray-500 dark:text-gray-300" />
@@ -55,7 +58,7 @@ function handleLogout() {
       <button
         v-if="authStore.isLoggedIn"
         @click="handleLogout"
-        class="flex items-center gap-1 px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition text-sm text-gray-600 dark:text-gray-300 font-medium"
+        class="flex items-center gap-1 px-4 py-1.5 rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition text-sm text-gray-600 dark:text-gray-300 font-medium"
       >
         <ArrowRightOnRectangleIcon class="w-4 h-4" />
         Logout
@@ -65,7 +68,7 @@ function handleLogout() {
       <RouterLink
         v-else
         to="/login"
-        class="flex items-center gap-1 px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition text-sm text-gray-600 dark:text-gray-300 font-medium"
+        class="flex items-center gap-1 px-4 py-1.5 rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition text-sm text-gray-600 dark:text-gray-300 font-medium"
       >
         <ArrowLeftOnRectangleIcon class="w-4 h-4" />
         Login
